@@ -10,19 +10,19 @@ Additionally the crash output is completely useless (missing backtrace and the n
 
 ```
 $ make
-gcc -shared -o plugin.so -lcrypt -Wall -O2 -ggdb -fsanitize=address -fno-omit-frame-pointer plugin.c
-gcc -o main -ldl  -Wall -O2 -ggdb -fsanitize=address -fno-omit-frame-pointer main.c
-$ ./main 
-Found plugin run function: 0x7f79959891a0
+gcc -shared -o plugin.so -lcrypt -Wall -Wextra -O2 -ggdb -fsanitize=address -fno-omit-frame-pointer plugin.c
+gcc -o main -ldl  -Wall -Wextra -O2 -ggdb -fsanitize=address -fno-omit-frame-pointer main.c
+$ ./main
+Found plugin run function: 0x7fa33ea3b1a0
 AddressSanitizer:DEADLYSIGNAL
 =================================================================
-==207166==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x000000000000 bp 0x7fff4f16c8d0 sp 0x7fff4f16c8c8 T0)
-==207166==Hint: pc points to the zero page.
-==207166==The signal is caused by a READ memory access.
-==207166==Hint: address points to the zero page.
+==208926==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x000000000000 bp 0x7ffed844e1b0 sp 0x7ffed844e1a8 T0)
+==208926==Hint: pc points to the zero page.
+==208926==The signal is caused by a READ memory access.
+==208926==Hint: address points to the zero page.
     #0 0x0  (<unknown module>)
 
 AddressSanitizer can not provide additional info.
 SUMMARY: AddressSanitizer: SEGV (<unknown module>) 
-==207166==ABORTING
+==208926==ABORTING
 ```

@@ -1,4 +1,4 @@
-override CFLAGS := -Wall -O2 -ggdb -fsanitize=address -fno-omit-frame-pointer
+override CFLAGS := -Wall -Wextra -O2 -ggdb -fsanitize=address -fno-omit-frame-pointer
 # override WORKAROUND := -lcrypt
 
 all: plugin.so main
